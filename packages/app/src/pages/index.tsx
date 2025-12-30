@@ -74,23 +74,27 @@ const HomePage: NextPage = () => {
           className={`tab tab-bordered ${activeTab === 'palindromes' ? 'tab-active' : ''}`}
           onClick={() => {
             setWordIndex(0);
+            setRotated(false);
             setActiveTab('palindromes');
           }}>
-          Palindromes
+          Palindromes ({activeTab === 'palindromes' ? `${wordIndex + 1}/` : ''}
+          {palindromeWords.length})
         </div>
         <div
           className={`tab tab-bordered ${activeTab === 'emordnilaps' ? 'tab-active' : ''}`}
           onClick={() => {
             setWordIndex(0);
+            setRotated(false);
             setActiveTab('emordnilaps');
           }}>
-          Emordnilaps
+          Emordnilaps ({activeTab === 'emordnilaps' ? `${wordIndex + 1}/` : ''}
+          {emordnilapWords.length})
         </div>
       </div>
 
       {/* Displaying the current word */}
       <div
-        className={`flex transform cursor-pointer gap-x-4 font-bold transition-transform duration-2000 ease-in-out ${
+        className={`flex transform cursor-pointer gap-x-4 font-bold transition-transform duration-1000 ease-in-out ${
           rotated ? 'rotate-180' : ''
         }`}
         onClick={() => setRotated(!rotated)} // You can still click to toggle rotation
@@ -98,7 +102,7 @@ const HomePage: NextPage = () => {
         {letters.map((letter, index) => (
           <div
             key={index}
-            className={`bg-primary-content flex aspect-square w-16 transform items-center justify-center rounded-full border text-center text-4xl uppercase transition-transform duration-2000 ease-in-out ${
+            className={`bg-primary-content flex aspect-square w-16 transform items-center justify-center rounded-full border text-center text-4xl uppercase transition-transform duration-1000 ease-in-out ${
               index === centerIndex ? 'text-primary' : 'text-secondary'
             } ${rotated ? '-rotate-180' : ''}`}>
             {letter}
