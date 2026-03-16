@@ -22,8 +22,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <div
-        className={`${geistSans.className} ${geistMono.className} bg-neutral-900 text-neutral-100`}>
+      <div className={`${geistSans.className} ${geistMono.className}`}>
         <Component {...pageProps} />
       </div>
     </>
