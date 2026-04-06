@@ -73,7 +73,6 @@ jobs:
           tag_name: ${{ matrix.platform }}
           name: Latest ${{ matrix.platform }} Release
           body: "Automated Build for ${{ matrix.platform }} latest commit on master."
-          prerelease: true
           files: ${{ matrix.bundle_path }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
